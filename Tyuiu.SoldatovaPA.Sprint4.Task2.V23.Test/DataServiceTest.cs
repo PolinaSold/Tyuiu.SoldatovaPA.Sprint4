@@ -11,13 +11,13 @@ namespace Tyutu.SoldatovaPA.Sprint4.Task2.V23.Test
         {
             DataService ds = new DataService();
 
-            // Тестовый массив с нечетными числами: 5, 7, 9
+            // Тестовый массив с нечетными числами: 5, 7, 9, 5
             int[] array = { 4, 5, 6, 7, 8, 9, 4, 6, 8, 5 };
 
             int result = ds.Calculate(array);
             int wait = 5 + 7 + 9 + 5; // Сумма всех нечетных элементов = 26
 
-            Assert.AreEqual(wait, result);
+            Assert.AreEqual(26, result);
         }
 
         [TestMethod]
@@ -46,20 +46,6 @@ namespace Tyutu.SoldatovaPA.Sprint4.Task2.V23.Test
             int wait = 5 + 7 + 9 + 5 + 7 + 9 + 5 + 7 + 9 + 5;
 
             Assert.AreEqual(wait, result);
-        }
-
-        [TestMethod]
-        public void TestWithMixedNumbers()
-        {
-            DataService ds = new DataService();
-
-            // Смешанный массив
-            int[] array = { 4, 5, 6, 7, 8, 9, 4, 6, 8, 5 };
-
-            int result = ds.Calculate(array);
-            int wait = 5 + 7 + 9 + 5; // Только нечетные числа
-
-            Assert.AreEqual(26, result); // 5+7+9+5=26
         }
     }
 }
