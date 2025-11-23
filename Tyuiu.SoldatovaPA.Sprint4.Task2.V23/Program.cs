@@ -41,7 +41,7 @@ namespace Tyutu.SoldatovaPA.Sprint4.Task2.V23
             int result = ds.Calculate(nums);
 
             // Выводим результат
-            Console.WriteLine($"* Произведение нечетных элементов массива: {result}");
+            Console.WriteLine($"* Сумма нечетных элементов массива: {result}");
 
             Console.WriteLine("**************************************************************************");
             Console.ReadLine();
