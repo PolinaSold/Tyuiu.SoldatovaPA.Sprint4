@@ -11,8 +11,8 @@ namespace Tyutu.SoldatovaPA.Sprint4.Task2.V23
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                      *");
             Console.WriteLine("**************************************************************************");
 
-            // Создаем массив из 10 элементов с ФИКСИРОВАННЫМИ значениями для результата 26
-            int[] nums = { 4, 5, 6, 7, 8, 9, 4, 6, 8, 5 }; // нечетные: 5,7,9,5 (5+7+9+5=26)
+            // Создаем массив из 10 элементов с ФИКСИРОВАННЫМИ значениями
+            int[] nums = { 4, 5, 6, 7, 8, 9, 4, 6, 8, 5 };
 
             Console.WriteLine("* Массив из 10 элементов:                                               *");
 
@@ -22,6 +22,18 @@ namespace Tyutu.SoldatovaPA.Sprint4.Task2.V23
             {
                 Console.Write(nums[i]);
                 if (i < nums.Length - 1) Console.Write(", ");
+            }
+            Console.WriteLine("]");
+
+            // Выводим нечетные элементы для проверки
+            Console.Write("* Нечетные элементы: [");
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 != 0)
+                {
+                    Console.Write(nums[i]);
+                    if (i < nums.Length - 1) Console.Write(", ");
+                }
             }
             Console.WriteLine("]");
 
