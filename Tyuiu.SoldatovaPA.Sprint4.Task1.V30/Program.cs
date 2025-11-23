@@ -1,45 +1,58 @@
 ﻿using System;
-using Tyuiu.SoldatovaPA.Sprint4.Task1.V30.Lib;
+using Tyutu.SoldatovaPA.Sprint4.Task1.V30.Lib;
 
-namespace Tyuiu.SoldatovaPA.Sprint4.Task1.V30
+namespace Tyutu.SoldatovaPA.Sprint4.Task1.V30
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Title = "Спринт #4 | Выполнила: Солдатова П. А. | ИСПБ-25-1";
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* Спринт #4                                                              *");
-            Console.WriteLine("* Тема: Обработка структурных типов                                      *");
-            Console.WriteLine("* Задание #1                                                             *");
-            Console.WriteLine("* Вариант #30                                                            *");
-            Console.WriteLine("* Выполнила: Солдатова П. А. | ИСПБ-25-1                                 *");
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* УСЛОВИЕ:                                                               *");
-            Console.WriteLine("* Дан одномерный целочисленный массив. Вычислить сумму чётных элементов *");
-            Console.WriteLine("* массива.                                                               *");
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                       *");
-            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("**************************************************************************");
+            Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                      *");
+            Console.WriteLine("**************************************************************************");
 
-            int[] array = { 6, 7, 8, 7, 6, 5, 6, 9, 9, 5, 7, 9, 7, 8, 7 };
+            // Создаем массив из 15 элементов
+            int[] nums = new int[15];
 
-            Console.Write("Массив: { ");
-            for (int i = 0; i < array.Length; i++)
+            Console.WriteLine("* Введите 15 целых чисел в диапазоне от 5 до 9:                         *");
+
+            // Ввод данных с клавиатуры
+            for (int i = 0; i < 15; i++)
             {
-                Console.Write(array[i]);
-                if (i < array.Length - 1) Console.Write(", ");
+                Console.Write($"* Введите {i + 1}-е число: ");
+                nums[i] = Convert.ToInt32(Console.ReadLine());
+
+                // Проверка диапазона
+                while (nums[i] < 5 || nums[i] > 9)
+                {
+                    Console.WriteLine("* Ошибка! Число должно быть в диапазоне от 5 до 9.");
+                    Console.Write($"* Введите {i + 1}-е число: ");
+                    nums[i] = Convert.ToInt32(Console.ReadLine());
+                }
             }
-            Console.WriteLine(" }");
 
+            Console.WriteLine("**************************************************************************");
+            Console.WriteLine("* РЕЗУЛЬТАТ:                                                            *");
+            Console.WriteLine("**************************************************************************");
+
+            // Создаем экземпляр сервиса и вычисляем результат
             DataService ds = new DataService();
-            int result = ds.Calculate(array);
+            int result = ds.Calculate(nums);
 
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ:                                                             *");
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine($"Сумма четных элементов = {result}");
-            Console.ReadKey();
+            // Выводим введенный массив
+            Console.Write("* Массив: [");
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.Write(nums[i]);
+                if (i < nums.Length - 1) Console.Write(", ");
+            }
+            Console.WriteLine("]");
+
+            // Выводим результат
+            Console.WriteLine($"* Произведение четных элементов массива: {result}");
+
+            Console.WriteLine("**************************************************************************");
+            Console.ReadLine();
         }
     }
 }

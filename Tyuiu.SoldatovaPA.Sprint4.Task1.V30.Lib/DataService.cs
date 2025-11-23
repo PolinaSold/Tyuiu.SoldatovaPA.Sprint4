@@ -1,24 +1,24 @@
-﻿using System;
-using tyuiu.cources.programming.interfaces.Sprint4;
-using Tyuiu.SoldatovaPA.Sprint4.Task1.V30.Lib;
+﻿using tyuiu.cources.programming.interfaces.Sprint4;
 
-namespace Tyuiu.SoldatovaPA.Sprint4.Task1.V30.Lib
+namespace Tyutu.SoldatovaPA.Sprint4.Task1.V30.Lib
 {
     public class DataService : ISprint4Task1V30
     {
         public int Calculate(int[] array)
         {
-            int sum = 0;
+            int product = 1;
+            bool hasEven = false;
 
             foreach (int num in array)
             {
-                if (num % 2 == 0) // Чётные числа
+                if (num % 2 == 0) // проверка на четность
                 {
-                    sum += num;
+                    product *= num;
+                    hasEven = true;
                 }
             }
 
-            return sum;
+            return hasEven ? product : 0; // если нет четных элементов, возвращаем 0
         }
     }
 }
